@@ -89,6 +89,7 @@ class List
 {
     // Private member functions
 
+        bool own = true;
         //- Allocate list storage
         inline void alloc();
 
@@ -133,6 +134,9 @@ public:
 
         //- Construct with given size and value for all elements
         List(const label, const T&);
+
+
+        List(T* data, const label size);
 
         //- Construct with given size initializing all elements to zero
         List(const label, const zero);

@@ -51,6 +51,12 @@ Foam::Field<Type>::Field(const label size)
     List<Type>(size)
 {}
 
+template<class Type>
+Foam::Field<Type>::Field(Type* data,const label size)
+:
+    List<Type>(data,size)
+{}
+
 
 template<class Type>
 Foam::Field<Type>::Field(const label size, const Type& t)

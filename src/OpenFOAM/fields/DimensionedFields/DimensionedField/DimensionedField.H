@@ -127,6 +127,13 @@ public:
             const dimensionSet&,
             const Field<Type>&
         );
+        DimensionedField
+        (
+            const IOobject& io,
+            const Mesh& mesh,
+            const dimensionSet& dims,
+            Type* data
+        );
 
         //- Construct from components
         //  Used for temporary fields which are initialised after construction

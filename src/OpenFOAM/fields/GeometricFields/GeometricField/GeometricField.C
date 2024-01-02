@@ -260,6 +260,24 @@ Foam::GeometricField<Type, PatchField, GeoMesh>::GeometricField
 
     readIfPresent();
 }
+template<class Type, template<class> class PatchField, class GeoMesh>
+Foam::GeometricField<Type, PatchField, GeoMesh>::GeometricField
+(
+    const IOobject& io,
+    const Mesh& mesh,
+    const dimensionSet& ds,
+    Type* data,
+    const word& patchFieldType
+)
+:
+    Internal(io, mesh, ds, data),
+    timeIndex_(this->time().timeIndex()),
+    field0Ptr_(nullptr),
+    fieldPrevIterPtr_(nullptr),
+    boundaryField_(mesh.boundary(), *this, patchFieldType)
+{
+
+}
 
 
 template<class Type, template<class> class PatchField, class GeoMesh>

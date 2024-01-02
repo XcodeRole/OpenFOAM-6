@@ -74,6 +74,21 @@ Foam::List<T>::List(const label s, const T& a)
     }
 }
 
+template<class T>
+Foam::List<T>::List(T* data, const label size)
+:
+    UList<T>(data, size)
+{
+    if (this->size_ < 0)
+    {
+        FatalErrorInFunction
+            << "bad size " << this->size_
+            << abort(FatalError);
+    }
+
+    this->own = false;
+}
+
 
 template<class T>
 Foam::List<T>::List(const label s, const zero)
@@ -268,7 +283,7 @@ Foam::List<T>::List(std::initializer_list<T> lst)
 template<class T>
 Foam::List<T>::~List()
 {
-    if (this->v_)
+    if (this->v_&&this->own)
     {
         delete[] this->v_;
     }

@@ -299,6 +299,15 @@ public:
             const word& patchFieldType=PatchField<Type>::calculatedType()
         );
 
+        GeometricField
+        (
+            const IOobject& io,
+            const Mesh& mesh,
+            const dimensionSet& ds,
+            Type* data,
+            const word& patchFieldType=PatchField<Type>::calculatedType()
+        );
+
         //- Constructor given IOobject, mesh, dimensions and patch types.
         //  This allocates storage for the field but not values.
         //  Used only within this class to create TEMPORARY variables

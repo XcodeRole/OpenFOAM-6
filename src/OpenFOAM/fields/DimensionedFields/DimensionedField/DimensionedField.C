@@ -71,6 +71,23 @@ DimensionedField<Type, GeoMesh>::DimensionedField
     }
 }
 
+template<class Type, class GeoMesh>
+DimensionedField<Type, GeoMesh>::DimensionedField
+(
+    const IOobject& io,
+    const Mesh& mesh,
+    const dimensionSet& dims,
+    Type* data
+)
+:
+    regIOobject(io),
+    Field<Type>(data,GeoMesh::size(mesh)),
+    mesh_(mesh),
+    dimensions_(dims)
+{
+
+}
+
 
 template<class Type, class GeoMesh>
 DimensionedField<Type, GeoMesh>::DimensionedField

@@ -117,6 +117,8 @@ public:
         //- Construct given size and initial value
         Field(const label, const Type&);
 
+        Field(Type* data,const label size);
+
         //- Construct given size and initialed to zero
         Field(const label, const zero);
 
